@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:orientation="vertical"
+    tools:context="com.androidapps.avinashtadavarthy.booktheshow.EntryActivity">
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="60sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:background="#ffffff"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="5sp" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:background="#ffffff"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="5sp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed"
+            android:text="Book"
+            android:textColor="#26C6DA"
+            android:textSize="50sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed"
+            android:text="the"
+            android:textColor="#ffffff"
+            android:textSize="40sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed"
+            android:text="Show"
+            android:textColor="#26C6DA"
+            android:textSize="50sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="5sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:background="#ffffff"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="5sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:background="#ffffff"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LET US KNOW"
+        android:textColor="#26C6DA"
+        android:fontFamily="sans-serif-condensed"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:layout_gravity="center"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="70sp" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="30sp"
+        android:layout_gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Name"
+            android:textSize="15sp"
+            android:textColor="#26C6DA"
+            android:fontFamily="sans-serif-condensed"/>
+
+        <Space
+            android:layout_width="10sp"
+            android:layout_height="match_parent" />
+
+
+        <EditText
+            android:id="@+id/editName"
+            android:layout_width="195sp"
+            android:layout_height="match_parent"
+            android:textColor="#ffffff"
+            android:textSize="15sp"
+            android:inputType="textCapSentences"
+            android:fontFamily="sans-serif-condensed"
+            android:background="@drawable/bottom_stroke"/>
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="15sp" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="30sp"
+        android:layout_gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="City"
+            android:textSize="15sp"
+            android:textColor="#26C6DA"
+            android:fontFamily="sans-serif-condensed"/>
+
+        <Space
+            android:layout_width="22sp"
+            android:layout_height="match_parent" />
+
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content">
+            <Spinner
+                android:id="@+id/spinner"
+                android:background="@drawable/bottom_stroke"
+                android:layout_width="180sp"
+                android:textColor="#ffffff"
+                android:fontFamily="sans-serif-condensed"
+                android:layout_height="30sp"/>
+            <ImageView
+                android:layout_width="20sp"
+                android:layout_height="20sp"
+                android:layout_gravity="center"
+                android:src="@drawable/arroww"/>
+        </LinearLayout>
+
+        </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="50sp" />
+
+    <TextView
+        android:id="@+id/errorMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="15sp"
+        android:textColor="#F44336"
+        android:fontFamily="sans-serif-condensed"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10sp" />
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:background="@drawable/spinner_border"
+        android:fontFamily="sans-serif-condensed"
+        android:text=" CONTINUE "
+        android:textColor="#26C6DA"
+        android:textSize="15sp"
+        android:layout_gravity="center"/>
+
+</LinearLayout>

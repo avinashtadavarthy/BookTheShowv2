@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:orientation="vertical"
+    tools:context="com.androidapps.avinashtadavarthy.booktheshow.SelectCinema">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" HELLO "
+            android:textColor="#26C6DA"
+            android:fontFamily="sans-serif-condensed"
+            android:layout_gravity="center"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/userName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#26C6DA"
+            android:fontFamily="sans-serif-condensed"
+            android:layout_gravity="center"
+            android:textSize="20sp"/>
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="5dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="  FEATURED MOVIES"
+        android:textColor="#26C6DA"
+        android:fontFamily="sans-serif-condensed"
+        android:textStyle="bold"
+        android:background="#37474F" />
+
+    <ViewFlipper
+        android:id="@+id/viewFlipper"
+        android:layout_width="match_parent"
+        android:layout_height="200sp"
+        android:gravity="center"
+        android:layout_below="@+id/textView3"
+        android:layout_alignParentStart="true">
+
+        <ImageView
+            android:id="@+id/baahubali2"
+            android:layout_width="match_parent"
+            android:layout_height="200sp"
+            android:src="@drawable/baahubali2"/>
+
+        <ImageView
+            android:id="@+id/despicableme3"
+            android:layout_width="match_parent"
+            android:layout_height="200sp"
+            android:src="@drawable/despicableme3"/>
+
+        <ImageView
+            android:id="@+id/spiderman"
+            android:layout_width="match_parent"
+            android:layout_height="200sp"
+            android:src="@drawable/spidey"/>
+
+        <ImageView
+            android:id="@+id/tubelight"
+            android:layout_width="match_parent"
+            android:layout_height="200sp"
+            android:src="@drawable/tubelight"/>
+
+        <ImageView
+            android:id="@+id/wonderwoman"
+            android:layout_width="match_parent"
+            android:layout_height="200sp"
+            android:src="@drawable/wonderwoman"/>
+
+    </ViewFlipper>
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="20dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="  NOW SHOWING"
+        android:fontFamily="sans-serif-condensed"
+        android:textStyle="bold"
+        android:textColor="#26C6DA"
+        android:background="#37474F"
+        android:layout_below="@+id/viewFlipper"
+        android:layout_alignParentStart="true" />
+
+    <GridView
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/grid_view_image_text"
+        android:columnWidth="165dp"
+        android:gravity="center"
+        android:numColumns="3"/>
+
+</LinearLayout>

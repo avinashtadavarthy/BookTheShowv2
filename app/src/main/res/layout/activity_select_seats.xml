@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:orientation="vertical">
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1sp"
+        android:background="@color/colorActionBar"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Please Click on the seats to select"
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="center_horizontal"
+        android:textSize="15sp"
+        android:textColor="@color/colorActionBar"
+        android:background="@drawable/bottom_stroke"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Automatic allocation if not selected"
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="center_horizontal"
+        android:textSize="10sp"
+        android:textColor="@color/colorActionBar"
+        android:background="@drawable/bottom_stroke"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20sp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="10sp"
+            android:layout_height="match_parent"
+            android:background="#ffffff"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:orientation="vertical"
+        android:layout_gravity="center_horizontal">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center">
+
+    <GridView
+        android:id="@+id/grid_select_seats_1"
+        android:layout_width="150sp"
+        android:layout_height="match_parent"
+        android:numColumns="6"
+        android:background="#ffffff"
+        android:columnWidth="25sp"/>
+
+        <TextView
+            android:layout_width="30sp"
+            android:layout_height="match_parent"
+            android:background="#ffffff"/>
+
+    <GridView
+        android:id="@+id/grid_select_seats_2"
+        android:layout_width="150sp"
+        android:layout_height="wrap_content"
+        android:numColumns="6"
+        android:background="#ffffff"
+        android:columnWidth="25sp"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="330sp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/screen"/>
+
+    </LinearLayout>
+
+        <TextView
+            android:layout_width="10sp"
+            android:layout_height="match_parent"
+            android:background="#ffffff"/>
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="30sp" />
+
+    <Button
+        android:id="@+id/btnContinue"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:background="@drawable/spinner_border"
+        android:fontFamily="sans-serif-condensed"
+        android:text=" CONTINUE "
+        android:textColor="#26C6DA"
+        android:textSize="15sp"
+        android:layout_gravity="center"/>
+
+</LinearLayout>

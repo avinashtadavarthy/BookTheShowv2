@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg">
+
+        <ImageView
+        android:id="@+id/film_image"
+        android:layout_width="match_parent"
+        android:layout_height="140sp"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="5sp" />
+
+    <TextView
+        android:id="@+id/film_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:fontFamily="sans-serif-condensed"
+        android:textColor="#ffffff"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-smallcaps"
+            android:textColor="#ffffff"
+            android:textSize="12sp"
+            android:text="this film is certified as '"/>
+
+        <TextView
+            android:id="@+id/film_cert"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-smallcaps"
+            android:textColor="#26C6DA"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-smallcaps"
+            android:textColor="#ffffff"
+            android:textSize="12sp"
+            android:text="'"/>
+
+        <TextView
+            android:layout_width="300sp"
+            android:layout_height="1sp"
+            android:background="#ffffff"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="5sp" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-smallcaps"
+            android:textColor="#26C6DA"
+            android:layout_gravity="center"
+            android:textSize="14sp"
+            android:text="synopsis "
+            android:layout_column="1"/>
+
+        <TextView
+            android:id="@+id/film_synopsis"
+            android:layout_width="0sp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:fontFamily="sans-serif-condensed"
+            android:textSize="12sp"
+            android:layout_column="2"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-smallcaps"
+                android:textColor="#26C6DA"
+                android:layout_gravity="center"
+                android:textSize="14sp"
+                android:text="genre "
+                android:layout_column="1"/>
+
+            <TextView
+                android:id="@+id/film_genre"
+                android:layout_width="0sp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="12sp"
+                android:layout_column="2"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-smallcaps"
+                android:textColor="#26C6DA"
+                android:layout_gravity="center"
+                android:textSize="14sp"
+                android:text="cast "
+                android:layout_column="1"/>
+
+            <TextView
+                android:id="@+id/film_cast"
+                android:layout_width="0sp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="12sp"
+                android:layout_column="2"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-smallcaps"
+                android:textColor="#26C6DA"
+                android:layout_gravity="center"
+                android:textSize="14sp"
+                android:text="runtime "
+                android:layout_column="1"/>
+
+            <TextView
+                android:id="@+id/film_runtime"
+                android:layout_width="0sp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="12sp"
+                android:layout_column="2"/>
+
+        </TableRow>
+
+    </TableLayout>
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingTop="20sp">
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bottom_stroke">
+
+        <TextView
+            android:layout_width="70sp"
+            android:layout_height="30sp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:textColor="#26C6DA"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:layout_gravity="center"
+            android:background="@drawable/bottom_stroke"
+            android:text="TICKETS"
+            android:layout_column="1"/>
+
+        <TextView
+            android:layout_width="70sp"
+            android:layout_height="30sp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:background="@drawable/bottom_stroke"
+            android:textColor="#26C6DA"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:text="DAY"
+            android:layout_column="2"/>
+
+        <TextView
+            android:layout_width="150sp"
+            android:layout_height="30sp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:textColor="#26C6DA"
+            android:layout_gravity="center"
+            android:background="@drawable/bottom_stroke"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:text="MONTH"
+            android:layout_column="3"/>
+
+    </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+
+           <LinearLayout
+               android:layout_column="1">
+            <Spinner
+                android:id="@+id/spin_tickets"
+                android:background="@drawable/bottom_stroke"
+                android:layout_width="70sp"
+                android:textColor="#ffffff"
+                android:fontFamily="sans-serif-condensed"
+                android:layout_height="30sp" />
+               <ImageView
+                   android:layout_width="20sp"
+                   android:layout_height="20sp"
+                   android:layout_gravity="center"
+                   android:src="@drawable/arroww"/>
+           </LinearLayout>
+
+            <LinearLayout
+                android:layout_column="2">
+            <Spinner
+                android:id="@+id/spin_days"
+                android:background="@drawable/bottom_stroke"
+                android:layout_width="70sp"
+                android:textColor="#ffffff"
+                android:fontFamily="sans-serif-condensed"
+                android:layout_height="30sp"/>
+                <ImageView
+                    android:layout_width="20sp"
+                    android:layout_height="20sp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/arroww"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_column="3">
+            <Spinner
+                android:id="@+id/spin_months"
+                android:layout_width="150sp"
+                android:layout_height="30sp"
+                android:background="@drawable/bottom_stroke"
+                android:fontFamily="sans-serif-condensed"
+                android:textColor="#ffffff" />
+                <ImageView
+                    android:layout_width="20sp"
+                    android:layout_height="20sp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/arroww"/>
+            </LinearLayout>
+
+        </TableRow>
+
+    </TableLayout>
+
+    <ExpandableListView
+        android:id="@+id/lvExp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30sp" />
+
+</LinearLayout>
+
+

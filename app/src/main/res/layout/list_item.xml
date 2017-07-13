@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#8037474F"
+    android:paddingLeft="20sp"
+    android:paddingTop="5sp"
+    android:paddingBottom="5sp">
+
+
+        <Button
+            android:id="@+id/lblListItem"
+            android:layout_width="wrap_content"
+            android:layout_height="30sp"
+            android:textSize="12sp"
+            android:fontFamily="sans-serif-condensed"
+            android:textColor="#000000"
+            android:padding="5sp"
+            android:background="@color/colorActionBar"/>
+
+</LinearLayout>

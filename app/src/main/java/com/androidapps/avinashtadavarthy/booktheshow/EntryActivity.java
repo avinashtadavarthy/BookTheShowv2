@@ -1,6 +1,7 @@
 package com.androidapps.avinashtadavarthy.booktheshow;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,9 +13,11 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.dd.CircularProgressButton;
+
 public class EntryActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
-    Button btnLogin;
+    CircularProgressButton circularProgressButton;
     Spinner spinner;
     TextView errorMessage;
     EditText editName;
@@ -31,7 +34,9 @@ public class EntryActivity extends AppCompatActivity implements AdapterView.OnIt
         getSupportActionBar().setDisplayShowCustomEnabled(true);
         getSupportActionBar().setCustomView(R.layout.action_bar_entry);
 
-        btnLogin = (Button) findViewById(R.id.btnLogin);
+        circularProgressButton =(CircularProgressButton) findViewById(R.id.btnLogin);
+        circularProgressButton.setIndeterminateProgressMode(true);
+
         spinner = (Spinner) findViewById(R.id.spinner);
         errorMessage = (TextView) findViewById(R.id.errorMessage);
         editName = (EditText) findViewById(R.id.editName);
@@ -43,17 +48,26 @@ public class EntryActivity extends AppCompatActivity implements AdapterView.OnIt
 
         movetoSelectCinema = new Intent(EntryActivity.this, SelectCinema.class);
 
-        btnLogin.setOnClickListener(new View.OnClickListener() {
+        circularProgressButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 if(!editName.getText().toString().equals("")) {
-                    movetoSelectCinema.putExtra("name", editName.getText().toString());
-                    startActivity(movetoSelectCinema);
-                    overridePendingTransition(R.anim.right_enter, R.anim.left_out);
+                    circularProgressButton.setProgress(50);
+
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            movetoSelectCinema.putExtra("name", editName.getText().toString());
+                            startActivity(movetoSelectCinema);
+                            overridePendingTransition(R.anim.right_enter, R.anim.left_out);
+                        }
+                    }, 2000);
+
                 }
                 else
                 {
+                    circularProgressButton.setProgress(0);
                     errorMessage.setText("Please fill in the necessary details!");
                 }
 
@@ -74,6 +88,7 @@ public class EntryActivity extends AppCompatActivity implements AdapterView.OnIt
     protected void onStart() {
         super.onStart();
 
+        circularProgressButton.setProgress(0);
         errorMessage.setText("");
         editName.setText("");
     }

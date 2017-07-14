@@ -16,8 +16,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.squareup.picasso.Picasso;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -33,7 +31,6 @@ public class MovieDetails extends AppCompatActivity implements AdapterView.OnIte
     Spinner spin_tickets,spin_days,spin_months;
 
     GridView showTimeGridView;
-    int lastExpandedPosition = -1;
 
     Intent movetoSeats;
 
@@ -222,65 +219,47 @@ public class MovieDetails extends AppCompatActivity implements AdapterView.OnIte
         spin_days.setAdapter(dayAdapter);
         spin_months.setAdapter(monthAdapter);
 
-        /*
-        // For the gridview
-        ShowTimeGrid adapter = new ShowTimeGrid(MovieDetails.this, show_name, show_time);
-        showTimeGridView=(GridView)findViewById(R.id.grid_show_times);
-        showTimeGridView.setAdapter(adapter);
-        showTimeGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
-
-                movetoSeats.putExtra("show_name", show_name[i])
-                        .putExtra("show_time", show_time[i])
-                        .putExtra("film_name",name)
-                        .putExtra("film_cert",cert);
-
-                startActivity(movetoSeats);
-                overridePendingTransition(R.anim.right_enter, R.anim.left_out);
-            }
-        }); */
-
         //For Expandable ListView
         expListView = (ExpandableListView) findViewById(R.id.lvExp);
         prepareListData();
         listAdapter = new ExpandableListAdapter(MovieDetails.this, listDataHeader, listDataChild);
         expListView.setAdapter(listAdapter);
 
-        expListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
 
+        expListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+            int previousItem = -1;
             @Override
             public void onGroupExpand(int groupPosition) {
-                if (lastExpandedPosition != -1
-                        && groupPosition != lastExpandedPosition) {
-                    expListView.collapseGroup(lastExpandedPosition);
-                }
-                lastExpandedPosition = groupPosition;
+                if(groupPosition != previousItem )
+                    expListView.collapseGroup(previousItem );
+                previousItem = groupPosition;
             }
         });
+
 
         expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
-
             @Override
-            public boolean onChildClick(ExpandableListView parent, View v,
-                                        int groupPosition, int childPosition, long id) {
+            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+
                 Toast.makeText(
-                        MovieDetails.this, listDataChild.get(
-                                listDataHeader.get(groupPosition)).get(childPosition), Toast.LENGTH_SHORT)
+                        getApplicationContext(),
+                        listDataHeader.get(groupPosition)
+                                + " : "
+                                + listDataChild.get(
+                                listDataHeader.get(groupPosition)).get(
+                                childPosition), Toast.LENGTH_SHORT)
                         .show();
-                return true;
+
+                movetoSeats.putExtra("theatre",listDataHeader.get(groupPosition))
+                        .putExtra("show_time",listDataChild.get(listDataHeader.get(groupPosition)).get(childPosition))
+                        .putExtra("film_name",name)
+                        .putExtra("film_cert",cert);
+                startActivity(movetoSeats);
+                overridePendingTransition(R.anim.right_enter, R.anim.left_out);
+                return false;
             }
         });
 
-        // Listview Group expanded listener
-        expListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
-
-            @Override
-            public void onGroupExpand(int groupPosition) {
-                movetoSeats.putExtra("theatre",listDataHeader.get(groupPosition));
-            }
-        });
     }
 
     private void prepareListData() {

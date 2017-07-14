@@ -17,6 +17,7 @@ public class FoodItem implements Serializable{
         this.quantity = quantity;
     }
 
+
     public int getQuantity(){
         return quantity;
     }

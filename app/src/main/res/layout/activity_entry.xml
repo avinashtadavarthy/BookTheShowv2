@@ -194,15 +194,17 @@
         android:layout_width="match_parent"
         android:layout_height="10sp" />
 
-    <Button
+    <com.dd.CircularProgressButton
         android:id="@+id/btnLogin"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:background="@drawable/spinner_border"
         android:fontFamily="sans-serif-condensed"
-        android:text=" CONTINUE "
-        android:textColor="#26C6DA"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
         android:textSize="15sp"
+        app:cpb_textIdle="  CONTINUE  "
         android:layout_gravity="center"/>
+
 
 </LinearLayout>

@@ -6,7 +6,7 @@
         <item name="colorPrimary">@color/colorActionBar</item>
         <item name="colorPrimaryDark">@color/colorActionBar</item>
         <item name="colorAccent">@color/colorActionBar</item>
-        <item name="actionBarSize">40dip</item>
+        <item name="actionBarSize">50sp</item>
     </style>
 
     <style name="AppTheme2" parent="Theme.AppCompat.Light.DarkActionBar">

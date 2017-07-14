@@ -9,7 +9,7 @@
     android:paddingBottom="5sp">
 
 
-        <Button
+        <TextView
             android:id="@+id/lblListItem"
             android:layout_width="wrap_content"
             android:layout_height="30sp"

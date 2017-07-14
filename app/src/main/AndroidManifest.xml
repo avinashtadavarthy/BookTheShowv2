@@ -36,7 +36,13 @@
             android:theme="@style/AppTheme2" />
         <activity
             android:name=".SelectFood"
-            android:theme="@style/AppTheme3"/>
+            android:theme="@style/AppTheme3" />
+        <activity
+            android:name=".SelectPayment"
+            android:theme="@style/AppTheme3" />
+        <activity
+            android:name=".BookingConfirm"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
     </application>
 
 </manifest>

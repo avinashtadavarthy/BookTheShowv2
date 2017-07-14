@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +27,8 @@ public class ListViewFood extends ArrayAdapter<FoodItem> {
         this.food_items = food_items;
     }
 
+
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View row = convertView;
@@ -41,6 +44,35 @@ public class ListViewFood extends ArrayAdapter<FoodItem> {
         holder.food_name = (TextView)row.findViewById(R.id.food_name);
         holder.food_price = (TextView)row.findViewById(R.id.food_price);
         holder.food_quantity = (TextView)row.findViewById(R.id.food_quantity);
+
+        Button btnPlus = (Button) row.findViewById(R.id.btnPlus);
+        Button btnMinus = (Button) row.findViewById(R.id.btnMinus);
+
+            btnPlus.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    if(holder.foodItem.getQuantity() < 10){
+                        holder.foodItem.addQ();
+                        holder.food_quantity.setText(Integer.toString(holder.foodItem.getQuantity()));
+                    } else {
+                        Toast.makeText(context, "Maximum Item Count Reached", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+
+        btnMinus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(holder.foodItem.getQuantity() > 0) {
+                    holder.foodItem.delQ();
+                    holder.food_quantity.setText(Integer.toString(holder.foodItem.getQuantity()));
+                } else {
+                    Toast.makeText(context, "Minimum Item Count Reached", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+
 
         row.setTag(holder);
         setupItem(holder);

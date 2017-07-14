@@ -20,10 +20,10 @@ import android.widget.Toast;
 
 public class SelectSeats extends AppCompatActivity {
 
-    TextView number_of_tickets, movie_ka_naam, movie_certif, movie_ka_day, movie_ka_month, movie_ka_time, movie_ka_showtype, notation, price;
+    TextView number_of_tickets, movie_ka_naam, movie_certif, movie_ka_day, movie_ka_month, movie_ka_time, theatre, notation, price;
 
     String showTicket;
-    int ticket_counter;
+    int ticket_counter,cost;
 
     GridSelectSeats adapter = new GridSelectSeats(SelectSeats.this,48);
 
@@ -38,7 +38,7 @@ public class SelectSeats extends AppCompatActivity {
         bar.setDisplayShowCustomEnabled(true);
         bar.setCustomView(R.layout.action_bar_seats);
 
-        final String showName = getIntent().getStringExtra("show_name");
+        final String showTheatre = getIntent().getStringExtra("theatre");
         final String showTime = getIntent().getStringExtra("show_time");
         showTicket = getIntent().getStringExtra("ticket");
         final String showMonth = getIntent().getStringExtra("month");
@@ -58,8 +58,8 @@ public class SelectSeats extends AppCompatActivity {
         movie_ka_month.setText(showMonth);
         movie_ka_time = (TextView) bar.getCustomView().findViewById(R.id.movie_ka_time);
         movie_ka_time.setText(showTime);
-        movie_ka_showtype = (TextView) bar.getCustomView().findViewById(R.id.movie_ka_showtype);
-        movie_ka_showtype.setText(showName);
+        theatre = (TextView) bar.getCustomView().findViewById(R.id.movie_ka_showtype);
+        theatre.setText(showTheatre);
         notation = (TextView) bar.getCustomView().findViewById(R.id.notation);
         switch(showDay){
             case "1": notation.setText("st"); break;
@@ -68,7 +68,7 @@ public class SelectSeats extends AppCompatActivity {
             default: notation.setText("th"); break;
         }
         price = (TextView) bar.getCustomView().findViewById(R.id.price);
-        final int cost = Integer.parseInt(showTicket)*120;
+        cost = Integer.parseInt(showTicket)*120;
         price.setText(Integer.toString(Integer.parseInt(showTicket)*120));
 
         final GridView grid_select_seats_1 = (GridView) findViewById(R.id.grid_select_seats_1);
@@ -78,38 +78,33 @@ public class SelectSeats extends AppCompatActivity {
 
         ticket_counter = Integer.parseInt(showTicket);
 
-                    if(ticket_counter!=0){
                         grid_select_seats_1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                             @Override
                             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
                                 ImageView seat = (ImageView) view.findViewById(R.id.seat);
-                                if(seat.getDrawable().getConstantState().equals
-                                        (getResources().getDrawable(R.drawable.seat).getConstantState())){
-                                    seat.setImageResource(R.drawable.seat_selected);
-                                    ticket_counter--;
-                                    number_of_tickets.setText(Integer.toString(ticket_counter));
-                                } else{
-                                    seat.setImageResource(R.drawable.seat);
-                                    ticket_counter++;
-                                    number_of_tickets.setText(Integer.toString(ticket_counter));
+                                if(ticket_counter!=0){
+                                    if(seat.getDrawable().getConstantState().equals
+                                            (getResources().getDrawable(R.drawable.seat).getConstantState())){
+                                        seat.setImageResource(R.drawable.seat_selected);
+                                        ticket_counter--;
+                                        number_of_tickets.setText(Integer.toString(ticket_counter));
+                                    } else{
+                                        seat.setImageResource(R.drawable.seat);
+                                        ticket_counter++;
+                                        number_of_tickets.setText(Integer.toString(ticket_counter));
+                                    }
                                 }
 
                                 if(ticket_counter == 0){
                                     showToastMessage("No more seats to select", 1000);
 
-                                    Intent movetoFood = new Intent(SelectSeats.this,SelectFood.class)
-                                            .putExtra("price",cost)
-                                            .putExtra("show_time", showTime)
-                                            .putExtra("film_name",movieName)
-                                            .putExtra("film_cert",movieCertif)
-                                            .putExtra("ticket",showTicket)
-                                            .putExtra("month",showMonth)
-                                            .putExtra("day",showDay)
-                                            .putExtra("show_name",showName);
-
-                                    startActivity(movetoFood);
-                                    overridePendingTransition(R.anim.right_enter, R.anim.left_out);
-
+                                    if(seat.getDrawable().getConstantState().equals
+                                            (getResources().getDrawable(R.drawable.seat_selected).getConstantState())){
+                                        seat.setImageResource(R.drawable.seat);
+                                        ticket_counter++;
+                                        number_of_tickets.setText(Integer.toString(ticket_counter));
+                                    }
                                 }
                             }
                         });
@@ -117,45 +112,44 @@ public class SelectSeats extends AppCompatActivity {
                         grid_select_seats_2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                             @Override
                             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                                ImageView seat = (ImageView) view.findViewById(R.id.seat);
-                                if(seat.getDrawable().getConstantState().equals
-                                        (getResources().getDrawable(R.drawable.seat).getConstantState())){
-                                    seat.setImageResource(R.drawable.seat_selected);
-                                    ticket_counter--;
-                                    number_of_tickets.setText(Integer.toString(ticket_counter));
-                                } else{
-                                    seat.setImageResource(R.drawable.seat);
-                                    ticket_counter++;
-                                    number_of_tickets.setText(Integer.toString(ticket_counter));
-                                }
 
-                                if(ticket_counter == 0){
+                                ImageView seat = (ImageView) view.findViewById(R.id.seat);
+                                if(ticket_counter!=0){
+                                    if(seat.getDrawable().getConstantState().equals
+                                            (getResources().getDrawable(R.drawable.seat).getConstantState())){
+                                        seat.setImageResource(R.drawable.seat_selected);
+                                        ticket_counter--;
+                                        number_of_tickets.setText(Integer.toString(ticket_counter));
+                                    } else{
+                                        seat.setImageResource(R.drawable.seat);
+                                        ticket_counter++;
+                                        number_of_tickets.setText(Integer.toString(ticket_counter));
+                                    }
+                                }
+                                else if(ticket_counter == 0){
                                     showToastMessage("No more seats to select", 1000);
 
-                                    Intent movetoFood = new Intent(SelectSeats.this,SelectFood.class)
-                                            .putExtra("price",cost)
-                                            .putExtra("show_time", showTime)
-                                            .putExtra("film_name",movieName)
-                                            .putExtra("film_cert",movieCertif)
-                                            .putExtra("ticket",showTicket)
-                                            .putExtra("month",showMonth)
-                                            .putExtra("day",showDay)
-                                            .putExtra("show_name",showName);
-
-                                    startActivity(movetoFood);
-                                    overridePendingTransition(R.anim.right_enter, R.anim.left_out);
-
+                                    if(seat.getDrawable().getConstantState().equals
+                                            (getResources().getDrawable(R.drawable.seat_selected).getConstantState())){
+                                        seat.setImageResource(R.drawable.seat);
+                                        ticket_counter++;
+                                        number_of_tickets.setText(Integer.toString(ticket_counter));
+                                    }
                                 }
+
                             }
                         });
-                    }
-
 
 
         Button btnContinue = (Button) findViewById(R.id.btnContinue);
         btnContinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if(ticket_counter!=0){
+                    showToastMessage("Required seats have been allotted",1500);
+                }
+
                 Intent movetoFood = new Intent(SelectSeats.this,SelectFood.class)
                         .putExtra("price",cost)
                         .putExtra("show_time", showTime)
@@ -164,11 +158,9 @@ public class SelectSeats extends AppCompatActivity {
                         .putExtra("ticket",showTicket)
                         .putExtra("month",showMonth)
                         .putExtra("day",showDay)
-                        .putExtra("show_name",showName);
+                        .putExtra("theatre",showTheatre);
 
                 startActivity(movetoFood);
-                showToastMessage("Seats have been chosen by the system",1500);
-
                 overridePendingTransition(R.anim.right_enter, R.anim.left_out);
             }
         });

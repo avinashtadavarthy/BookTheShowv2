@@ -36,7 +36,6 @@
                 android:id="@+id/final_price"
                 android:textSize="50sp"
                 android:textStyle="bold"
-                android:text="120"
                 android:fontFamily="sans-serif-condensed"
                 android:textColor="@color/colorActionBar"
                 android:layout_width="wrap_content"
@@ -348,10 +347,11 @@
             android:background="@drawable/bottom_stroke"
             android:hint="CVV"
             android:fontFamily="sans-serif-condensed"
-            android:inputType="number"
+            android:inputType="numberPassword"
             android:textColor="#ffffff"
             android:textColorHint="#50ffffff"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            android:maxLength="3"/>
 
     </LinearLayout>
 

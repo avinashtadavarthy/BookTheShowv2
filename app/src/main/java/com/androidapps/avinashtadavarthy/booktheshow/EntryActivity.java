@@ -1,6 +1,7 @@
 package com.androidapps.avinashtadavarthy.booktheshow;
 
 import android.content.Intent;
+import android.os.DropBoxManager;
 import android.os.Handler;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -91,5 +92,15 @@ public class EntryActivity extends AppCompatActivity implements AdapterView.OnIt
         circularProgressButton.setProgress(0);
         errorMessage.setText("");
         editName.setText("");
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        Intent homeIntent = new Intent(Intent.ACTION_MAIN);
+        homeIntent.addCategory(Intent.CATEGORY_HOME);
+        homeIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(homeIntent);
     }
 }

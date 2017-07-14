@@ -126,7 +126,7 @@
                 android:paddingTop="5sp"/>
 
             <TextView
-                android:id="@+id/conf_tickets"
+                android:id="@+id/conf_details"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-condensed"
@@ -136,7 +136,7 @@
                 android:paddingTop="5sp"/>
 
             <TextView
-                android:id="@+id/conf_price"
+                android:id="@+id/conf_tickets"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-condensed"

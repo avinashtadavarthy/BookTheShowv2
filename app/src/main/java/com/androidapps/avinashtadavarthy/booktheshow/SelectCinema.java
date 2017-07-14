@@ -56,7 +56,7 @@ public class SelectCinema extends AppCompatActivity {
 
         userName = (TextView) findViewById(R.id.userName);
 
-        String name = getIntent().getStringExtra("name");
+        final String name = getIntent().getStringExtra("name");
         userName.setText(name.toUpperCase());
 
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
@@ -74,7 +74,7 @@ public class SelectCinema extends AppCompatActivity {
         baahubali2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent movetoDetails = new Intent(SelectCinema.this, MovieDetails.class).putExtra("film_name","Bahubali 2").putExtra("film_cert", "U") ;
+                Intent movetoDetails = new Intent(SelectCinema.this, MovieDetails.class).putExtra("film_name","Bahubali 2").putExtra("film_cert", "U");
                 startActivity(movetoDetails);
                 overridePendingTransition(R.anim.right_enter, R.anim.left_out);
             }
@@ -143,7 +143,9 @@ public class SelectCinema extends AppCompatActivity {
     @Override
     public void onBackPressed()
     {
-        this.finish();
+        //this.finish();
+        Intent back = new Intent(SelectCinema.this,EntryActivity.class);
+        startActivity(back);
         overridePendingTransition(R.anim.right_out, R.anim.left_enter);
     }
 

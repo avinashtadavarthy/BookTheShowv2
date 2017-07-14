@@ -81,7 +81,6 @@ public class MovieDetails extends AppCompatActivity implements AdapterView.OnIte
 
         switch(name){
             case "Bahubali 2" :
-                //Picasso.with(this).load("http://images.indianexpress.com/2017/01/baahubali-2-759.jpg").resize(x,y).centerCrop().into(film_image);
                 film_image.setImageResource(R.drawable.bahu);
                 film_synopsis.setText("Shiva, the son of Bahubali, begins to search for answers after he learns about his heritage and the events that unfolded in the Mahishmati Kingdom.");
                 film_genre.setText("Action, Drama, History, War");
@@ -138,8 +137,7 @@ public class MovieDetails extends AppCompatActivity implements AdapterView.OnIte
                 break;
 
             case "Guest iin London" :
-                //Picasso.with(this).load("https://scontent.fmaa2-1.fna.fbcdn.net/v/t1.0-9/16806800_1283672948384558_8857643183221490467_n.jpg?oh=b1e5bd7d2caf6bc6b95ffb660e83f14b&oe=59C31CA1").resize(360,80).centerCrop().into(film_image);
-                film_image.setImageResource(R.drawable.gues);
+               film_image.setImageResource(R.drawable.gues);
                 film_synopsis.setText("A young couple in London who are in a live-in relationship, struggle to co-exist with their bothersome guests who seem to overstay their welcome.");
                 film_genre.setText("Comedy, Drama");
                 film_cast.setText("Kartik Aryan Tiwari, Kriti Kharbanda, Paresh Rawal, Tanvi Azmi");
@@ -244,7 +242,7 @@ public class MovieDetails extends AppCompatActivity implements AdapterView.OnIte
                 Toast.makeText(
                         getApplicationContext(),
                         listDataHeader.get(groupPosition)
-                                + " : "
+                                + " | "
                                 + listDataChild.get(
                                 listDataHeader.get(groupPosition)).get(
                                 childPosition), Toast.LENGTH_SHORT)
@@ -254,6 +252,7 @@ public class MovieDetails extends AppCompatActivity implements AdapterView.OnIte
                         .putExtra("show_time",listDataChild.get(listDataHeader.get(groupPosition)).get(childPosition))
                         .putExtra("film_name",name)
                         .putExtra("film_cert",cert);
+
                 startActivity(movetoSeats);
                 overridePendingTransition(R.anim.right_enter, R.anim.left_out);
                 return false;

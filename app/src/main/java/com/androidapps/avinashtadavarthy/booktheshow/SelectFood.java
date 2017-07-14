@@ -28,7 +28,6 @@ import java.util.List;
 public class SelectFood extends AppCompatActivity {
 
     ArrayList<FoodItem> foodItems;
-    TextView total_price;
 
     Intent movetoPayment;
 
@@ -42,7 +41,6 @@ public class SelectFood extends AppCompatActivity {
         getSupportActionBar().setCustomView(R.layout.action_bar_food);
 
         foodItems = new ArrayList<FoodItem>();
-        total_price = (TextView) findViewById(R.id.total_price);
 
         final String showTime = getIntent().getStringExtra("show_time");
         final String showTicket = getIntent().getStringExtra("ticket");
@@ -50,9 +48,7 @@ public class SelectFood extends AppCompatActivity {
         final String showDay = getIntent().getStringExtra("day");
         final String movieName = getIntent().getStringExtra("film_name");
         final String movieCertif = getIntent().getStringExtra("film_cert");
-        final String price = getIntent().getStringExtra("price");
-
-        total_price.setText(Integer.toString(Integer.parseInt(showTicket)*120));
+        final String showTheatre = getIntent().getStringExtra("theatre");
 
         foodItems.add(new FoodItem(R.drawable.popcorn, "popcorn", 100, 0));
         foodItems.add(new FoodItem(R.drawable.caramel, "caramel popcorn", 110, 0));
@@ -71,7 +67,19 @@ public class SelectFood extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                movetoPayment = new Intent(SelectFood.this,SelectPayment.class);
+
+                Toast.makeText(SelectFood.this, "Payment for food will be done at the theatre", Toast.LENGTH_LONG).show();
+
+                movetoPayment = new Intent(SelectFood.this,SelectPayment.class)
+                        .putExtra("show_time", showTime)
+                        .putExtra("film_name",movieName)
+                        .putExtra("film_cert",movieCertif)
+                        .putExtra("ticket",showTicket)
+                        .putExtra("month",showMonth)
+                        .putExtra("day",showDay)
+                        .putExtra("theatre",showTheatre)
+                        .putExtra("ticketcost",Integer.toString(Integer.parseInt(showTicket)*120));
+
                 startActivity(movetoPayment);
                 overridePendingTransition(R.anim.right_enter, R.anim.left_out);
             }

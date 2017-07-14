@@ -5,57 +5,14 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-condensed"
-        android:textSize="25sp"
-        android:gravity="right"
-        android:text="Total "
-        android:paddingTop="5sp"
-        android:textColor="@color/colorActionBar"
-        android:id="@+id/textView"
-        android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/button"
-        android:layout_marginStart="30dp" />
-
-    <TextView
-        android:id="@+id/rupees"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-condensed"
-        android:textStyle="bold"
-        android:textSize="25sp"
-        android:gravity="right"
-        android:text="₹"
-        android:paddingTop="5sp"
-        android:textColor="@color/colorActionBar"
-        android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/textView" />
-
-    <TextView
-        android:id="@+id/total_price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-condensed"
-        android:textStyle="bold"
-        android:textSize="25sp"
-        android:gravity="right"
-        android:paddingRight="5sp"
-        android:paddingTop="5sp"
-        android:textColor="@color/colorActionBar"
-        android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/rupees" />
-
     <ListView
         android:id="@+id/listViewFood"
         android:layout_width="match_parent"
         android:layout_height="500sp"
-        android:layout_below="@+id/textView"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="5sp"
-        android:layout_above="@id/button"
-        android:layout_marginBottom="5sp"/>
+        android:layout_above="@+id/button"
+        android:layout_marginBottom="5sp"
+        android:layout_alignParentTop="true" />
 
     <Button
         android:id="@+id/button"

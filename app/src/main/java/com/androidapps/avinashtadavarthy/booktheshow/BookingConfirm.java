@@ -45,6 +45,8 @@ public class BookingConfirm extends AppCompatActivity {
         conf_tickets.setText(showTicket + " Tickets at ₹" + ticketcost);
 
         conf_bookid = (TextView) findViewById(R.id.conf_bookid);
+        MyStringRandomGen random = new MyStringRandomGen();
+        conf_bookid.setText(" booking id: " + random.generateRandomString().toLowerCase() + " ");
 
         conf_image = (ImageView) findViewById(R.id.conf_image);
 
